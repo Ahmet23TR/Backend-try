@@ -1,0 +1,369 @@
+/* Tema Rengi Tanımlamaları:
+   #f3e9d2 - Açık bej arka plan rengi (Ana arka plan)
+   #5e503f - Kahverengi metin rengi (Ana metin rengi)
+   #a9927d - Açık kahverengi footer arka plan rengi (Footer arka planı)
+   #4caf50 - Yeşil, vurgulama ve buton arka plan rengi (Vurgulama/Başarılı işlemler)
+   #212529, #495057 - Koyu gri, koyu tema arka plan ve metin rengi (Koyu tema için genel renk)
+   #fff - Beyaz metin ve arka plan rengi (Genel vurgu ve seçilen öğeler için)
+   #dbc310 - Sarı vurgu rengi (Highlight için kullanılan renk)
+   #b83b5e - Hover durumunda tema değiştirme butonu
+   #f08a5d - Sıcak turuncu, tema değiştirme butonu arka plan rengi
+*/
+
+/* Temel Stil Ayarları */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0; /* Dış boşluk sıfırlanıyor */
+  padding: 0; /* İç boşluk sıfırlanıyor */
+  background-color: #f3e9d2; /* Açık bej arka plan rengi */
+  color: #5e503f; /* Kahverengi metin rengi */
+}
+
+/* Footer Stili */
+footer {
+  background-color: #a9927d; /* Açık kahverengi arka plan rengi */
+  color: #f3e9d2; /* Açık bej metin rengi */
+  padding: 20px; /* 20 piksel iç boşluk */
+  text-align: center; /* Metin ortalanıyor */
+}
+
+/* Ana Bölüm Stili */
+main {
+  display: flex; /* Esnek kutu modeli kullanılıyor */
+  justify-content: space-around; /* Elemanlar arasında eşit boşluk bırakılıyor */
+  padding: 20px; /* 20 piksel iç boşluk */
+}
+
+/* Ürün Listesi ve Sipariş Detayları Stilleri */
+.product-list,
+.order-details {
+  width: 45%; /* Genişlik %45 olarak ayarlanıyor */
+}
+
+.product-list ul {
+  list-style-type: none; /* Liste işaretleri kaldırılıyor */
+  padding: 0; /* İç boşluk sıfırlanıyor */
+}
+
+/* Ürün Listesi ve Sipariş Detayları Başlıkları */
+.product-list h2,
+.order-details h2 {
+  text-align: center; /* Başlıklar ortalanıyor */
+  color: #4a5043; /* Koyu yeşil-kahverengi metin rengi */
+}
+
+/* Ürün Kutusu Stilleri */
+.product-item {
+  background-color: #fff; /* Beyaz arka plan rengi */
+  padding: 10px; /* 10 piksel iç boşluk */
+  border: 1px solid #ccc; /* Gri kenarlık */
+  margin-bottom: 10px; /* Altta 10 piksel boşluk */
+}
+
+/* Seçilen Ürün ve Toplam Stilleri */
+.selected-product,
+.total {
+  margin-top: 35px; /* Üstte 35 piksel boşluk */
+  padding: 10px; /* 10 piksel iç boşluk */
+  border: 1px solid #ccc; /* Gri kenarlık */
+}
+
+/* Seçilen Ürün İçin Sayısal Giriş Kutusu Stili */
+.selected-product input[type="number"] {
+  width: 80px; /* Genişlik 80 piksel */
+  padding: 8px; /* 8 piksel iç boşluk */
+  border: 1px solid #ccc; /* Gri kenarlık */
+  border-radius: 5px; /* Kenar yuvarlaklığı 5 piksel */
+  font-size: 16px; /* Yazı boyutu 16 piksel */
+  box-sizing: border-box; /* Kutu boyutlandırması */
+  outline: none; /* Dış çizgi kaldırılıyor */
+}
+
+/* Sayısal Giriş Kutusu Odaklanma Stili */
+.selected-product input[type="number"]:focus {
+  border-color: #4caf50; /* Odaklanınca kenarlık rengi yeşil */
+}
+
+/* Seçilen Ürün İçin Buton Stili */
+.selected-product button {
+  margin-top: 10px; /* Üstte 10 piksel boşluk */
+  padding: 5px 10px; /* İç boşluk 5px yukarı/aşağı, 10px sağ/sol */
+  background-color: #4caf50; /* Yeşil arka plan rengi */
+  color: white; /* Beyaz yazı rengi */
+  border: none; /* Kenarlık yok */
+  cursor: pointer; /* İmleç işaretçi */
+}
+
+/* Buton Hover (Üzerine Gelince) Stili */
+.selected-product button:hover {
+  background-color: #45a049; /* Koyu yeşil arka plan rengi */
+}
+
+/* Ürün konteyneri grid sistemini kullanıyor */
+.product-container {
+  display: grid;
+}
+
+/* Ürünlerin her biri için kenar yuvarlaklıkları tanımlandı */
+.product-item {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Miktar konteyneri için sağ taraf yuvarlaklıklar */
+.quantity-container {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Seçilen ürün için arka plan ve metin rengi */
+.product-item.selected {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+/* Ürün ve miktarı gösteren tablo grid sistemini kullanıyor */
+.product-quantity-table {
+  display: grid;
+  grid-template-columns: repeat(2, 20fr);
+}
+
+/* Sipariş butonu stil tanımlamaları */
+.order-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+  background-color: #45a049;
+}
+
+/* Tarih seçici için flexbox kullanılarak ortalanmış ve yatay olarak dizilmiş */
+.select-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Tarih seçici input ve metin alanı stil tanımlamaları */
+.selected-date {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fefefe;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.select-date:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Sipariş girildiğinde ürün kutucuğunun arka plan rengi sarıya dönüyor */
+.product-item.highlight {
+  background-color: #dbc310;
+}
+
+.logo {
+  width: 300px; /* Resmin genişliği */
+  height: 219px; /* Otomatik yükseklik ayarı */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.DerasHeader {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #fefefe;
+  padding-bottom: 60px;
+}
+
+.header-content {
+  display: grid;
+  align-items: center;
+}
+
+.total {
+  background-color: #fefefe;
+}
+.selected-product {
+  background-color: #fefefe;
+  border-radius: 10px;
+}
+.DerasHeader h1 {
+  justify-content: center;
+  margin-top: 70px;
+  font-size: 2.5rem;
+  font-family: Cursive;
+  font-style: Lucida Handwriting;
+}
+.product-box {
+  width: 20%;
+  background-color: #ffbc50;
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #333;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.details {
+  height: auto;
+  width: auto;
+}
+
+.product-box:hover {
+  transform: scale(1.05);
+}
+
+.underline {
+  border: none;
+  border-top: 1px solid #ccc; /* Ince gri çizgi */
+  margin-top: 5px; /* Başlık ile çizgi arasında 5 piksel boşluk bırakır */
+}
+.order-details.sticky {
+  position: fixed;
+  top: 0; /* Ekranın üst kısmına hizalanır */
+  left: 0; /* Ekranın sol kısmına hizalanır */
+}
+.order-details {
+  position: fixed;
+  margin-top: 10000;
+  right: 0;
+  margin-right: 50px;
+  width: 45%;
+  z-index: 1000;
+}
+
+.product-list {
+  margin-right: 690px; /* Sağdaki panelin genişliği + biraz boşluk */
+}
+
+.theme-button {
+  position: absolute;
+  background-color: #f08a5d; /* Sıcak turuncu arka plan */
+  top: 10px;
+  right: 10px;
+  color: white; /* Beyaz yazı rengi */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Renk ve dönüşüm animasyonları */
+}
+
+.theme-button:hover {
+  background-color: #b83b5e; /* Hover durumunda koyu magenta */
+}
+
+.theme-button:active {
+  transform: scale(0.95); /* Butona basıldığında küçülme efekti */
+}
+
+.theme-button i {
+  margin-right: 5px;
+}
+
+.last-item {
+  margin: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/**************************/
+/* Dark Theme*/
+/**************************/
+/* Koyu Tema Stil Ayarları */
+.logo-dark-mode {
+  filter: brightness(50%) saturate(50%); /* Logoya koyu mod filtresi */
+}
+
+/* Koyu tema genel arka plan ve metin renkleri */
+body.dark,
+.product-title.dark {
+  background-color: #212529; /* Koyu gri arka plan */
+  color: #fff; /* Beyaz metin rengi */
+}
+
+/* Koyu tema için link renkleri */
+body.dark a {
+  color: #1e90ff; /* Parlak mavi link rengi */
+}
+
+/* Koyu tema için ürün öğeleri */
+.product-item.dark,
+.selected-date.dark,
+.quantity-container.dark,
+.selected-product.dark,
+.total.dark,
+.DerasHeader.dark,
+.last-item.dark,
+body.dark .product-item {
+  background-color: #343a40; /* Koyu gri arka plan */
+  color: #fff; /* Beyaz metin rengi */
+}
+
+/* Koyu tema için özel ürün seçimi ve vurgulama */
+body.dark .product-item.selected {
+  background-color: #4caf50; /* Yeşil arka plan */
+}
+
+/* Koyu tema aktifken vurgulanan ürünün arka planı */
+body.dark .product-item.highlighted {
+  background-color: #ff0; /* Parlak sarı arka plan */
+}
+
+/* Koyu tema için DerasHeader özel arka plan */
+.DerasHeader.dark {
+  background-color: #7f7f7f; /* Orta gri arka plan */
+}
+
+/**************************/
+/* BELOW 944px (Tablets)*/
+/**************************/
+
+@media (max-width: 59em) {
+  html {
+    font-size: 100%;
+  }
+
+  .product-list {
+    margin-right: 420px; /* Sağdaki panelin genişliği + biraz boşluk */
+  }
+
+  .logo {
+    width: 200px; /* Resmin genişliği */
+    height: 170px; /* Otomatik yükseklik ayarı */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

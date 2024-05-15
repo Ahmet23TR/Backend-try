@@ -3,21 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon" />
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
     <header class="DerasHeader">
       <nav>
-        <img src="{{ url_for('static', filename='Deras.png') }}" alt="Logo" class="logo">
-        <h1>Deras Order System</h1>
-        {% if current_user.is_authenticated %}
-        <a href="{{ url_for('main.logout') }}">Logout</a>
-        {% else %}
-        <a href="{{ url_for('main.login') }}">Login</a>
-        <a href="{{ url_for('main.register') }}">Register</a>
-        {% endif %}
+      <img src="Deras.png" alt="Logo" class="logo">
+      <h1>Deras Order System</h1>
       </nav>
       <button onclick="themeChange()" class="theme-button"><i class="fas fa-moon"></i> Tema Değiştir</button>
     </header>  
-    <link rel="stylesheet" href="{{ url_for('static', filename='greybox.css') }}"/>
+    <link rel="stylesheet" href="greybox.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   </head>
   <title>Deras Order System</title>
@@ -30,31 +24,345 @@
         <h2 class="product-title">Ürünler</h2>
         <div class="product-container">
           <ul>
-            {% for product in products %}
             <li class="product-quantity-table">
-              <div class="product-item">{{ product.name }}</div>
+              <div class="product-item">Havuç</div>
               <div class="quantity-container">
-                <span class="quantity">{{ product.quantity }}</span>
+                <span class="quantity">0</span>
               </div>
             </li>
-            {% endfor %}
+            <li class="product-quantity-table">
+              <div class="product-item">Havuç Cevizli</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>             
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Kare</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Kare Çikolatalı</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Kare Çikolatalı Fındıklı</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Kare Cevizli</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Midye</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Midye Cevizli</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Midye Çikolatalı</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Sobiyet</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li class="product-quantity-table">
+            <li class="product-quantity-table">
+              <div class="product-item">Sarma</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Sultan Baklava</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Bohca Baklava</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Soğuk Mix</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Soğuk Fıstıklı</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Mix Baklava</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Parmak Baklava</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Kadayıf Fıstıklı</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Sultaniye Kadayıf</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Burma Kadayıf (Peynirli)</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Burma Kadayıf (Fıstıklı)</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Börek</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Trileçe Karamel</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Trileçe Fıstıklı</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Trileçe Çilekli</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Trileçe Çikolatalı</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Fıstık Tozu</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Ceviz</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Dondurma</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Bun 35g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Bun 60g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Bun 100g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Bun 140g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Sandwich Ekmeği</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Hamburger Ekmeği</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit 50g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit 120g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit Brown</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit Brown 120g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit Stuffed</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit Stuffed 50g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit Sandwich</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit Jumbo</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Simit Balls</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Acma Balls</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Stuffed Acma Balls</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Acma</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Acma 50g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Acma Stuffed</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Acma Stuffed 50g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Acma Sandwich</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Pogaca</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Pogaca 50g</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Pogaca Stuffed</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
+            <li class="product-quantity-table">
+              <div class="product-item">Mini Pizza</div>
+              <div class="quantity-container">
+                <span class="quantity">0</span>
+              </div>
+            </li>
           </ul>
         </div>
       </section>
-
-      {% if current_user.is_authenticated %}
-      <section class="product-management">
-        <h2 class="product-title">Ürün Yönetimi</h2>
-        <form method="POST" action="{{ url_for('main.add_product') }}">
-          <label for="name">Ürün Adı:</label>
-          <input type="text" name="name" required>
-          <label for="quantity">Adet:</label>
-          <input type="number" name="quantity" required>
-          <button type="submit">Ürün Ekle</button>
-        </form>
-      </section>
-      {% endif %}
-
       <div class="order-details">
         <h2 class="product-title">Sipariş Detayları</h2>
         <div class="selected-product">
@@ -80,6 +388,6 @@
       <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
     </footer>
 
-    <script src="{{ url_for('static', filename='greybox.js') }}"></script>
+    <script src="greybox.js"></script>
   </body>
 </html>
