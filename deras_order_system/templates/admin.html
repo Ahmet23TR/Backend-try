@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli - Deras Order System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='greybox.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <header class="DerasHeader">
+        <nav>
+            <img src="{{ url_for('static', filename='Deras.png') }}" alt="Logo" class="logo">
+            <h1>Admin Paneli</h1>
+        </nav>
+    </header>
+    <main>
+        <section class="product-list">
+            <h2 class="product-title">Ürünler</h2>
+            <div class="product-container">
+                <ul>
+                    {% for product in products %}
+                    <li class="product-quantity-table">
+                        <div class="product-item">{{ product.name }}</div>
+                        <div class="quantity-container">
+                            <span class="quantity">{{ product.quantity }}</span>
+                        </div>
+                        <form action="/delete_product/{{ product.id }}" method="POST">
+                            <button type="submit" class="delete-button">Sil</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <div class="add-product">
+            <h2 class="product-title">Ürün Ekle</h2>
+            <form action="/add_product" method="POST">
+                <input type="text" name="product_name" placeholder="Ürün Adı" required>
+                <button type="submit" class="order-button">Ürün Ekle</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='greybox.js') }}"></script>
+</body>
+</html>

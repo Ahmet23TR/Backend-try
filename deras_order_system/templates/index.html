@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <title>Deras Order System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='greybox.css') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <header class="DerasHeader">
+        <nav>
+            <img src="{{ url_for('static', filename='Deras.png') }}" alt="Logo" class="logo">
+            <h1>Deras Order System</h1>
+        </nav>
+        <button onclick="themeChange()" class="theme-button"><i class="fas fa-moon"></i> Tema Değiştir</button>
+    </header>
+    <div class="select-date">
+        <input type="date" class="selected-date">
+    </div>
+    <main>
+        <section class="product-list">
+            <h2 class="product-title">Ürünler</h2>
+            <div class="product-container">
+                <ul>
+                    {% for product in products %}
+                    <li class="product-quantity-table">
+                        <div class="product-item" onclick="selectProduct('{{ product.name }}')">{{ product.name }}</div>
+                        <div class="quantity-container">
+                            <span class="quantity">{{ product.quantity }}</span>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <div class="order-details">
+            <h2 class="product-title">Sipariş Detayları</h2>
+            <div class="selected-product">
+                <h3>Seçilen Ürün</h3>
+                <hr class="underline">
+                <div class="details">
+                    <div class="product-box">
+                        <p id="selected-product-name">---</p>
+                    </div>
+                    <input type="number" id="quantity" placeholder="Adet" required>
+                    <button onclick="addOrder()" class="order-button">Sipariş Ekle</button>
+                    <div id="last-added-item" class="last-item">
+                        <p>Son Eklenen Ürün: <span id="last-item-name">-</span></p>
+                    </div>
+                </div>
+                <div class="total">
+                    <h3>Toplam Sipariş Adedi</h3>
+                    <p id="total-orders">0</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='greybox.js') }}"></script>
+</body>
+</html>
