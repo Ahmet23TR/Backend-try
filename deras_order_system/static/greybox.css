@@ -367,3 +367,54 @@ body.dark .product-item.highlighted {
     left: 0;
   }
 }
+
+/********************/
+.order-button {
+  background-color: #4CAF50; /* Yeşil arka plan */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.order-button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.form-section {
+  margin: 20px 0;
+}
+
+.form-section h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section input[type="text"],
+.form-section input[type="number"],
+.form-section select {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-section button {
+  align-self: flex-start;
+}
+.product-list-admin{
+  width: 45%;
+}

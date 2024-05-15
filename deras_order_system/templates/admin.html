@@ -12,10 +12,11 @@
         <nav>
             <img src="{{ url_for('static', filename='Deras.png') }}" alt="Logo" class="logo">
             <h1>Admin Paneli</h1>
+            <button onclick="themeChange()" class="theme-button"><i class="fas fa-moon"></i> Tema Değiştir</button>
         </nav>
     </header>
     <main>
-        <section class="product-list">
+        <section class="product-list-admin">
             <h2 class="product-title">Ürünler</h2>
             <div class="product-container">
                 <ul>
@@ -30,14 +31,14 @@
                 </ul>
             </div>
         </section>
-        <div class="add-product">
+        <div class="form-section add-product">
             <h2 class="product-title">Ürün Ekle</h2>
             <form action="/add_product" method="POST">
                 <input type="text" name="product_name" placeholder="Ürün Adı" required>
                 <button type="submit" class="order-button">Ürün Ekle</button>
             </form>
         </div>
-        <div class="delete-product">
+        <div class="form-section delete-product">
             <h2 class="product-title">Ürün Sil</h2>
             <form action="/delete_product" method="POST">
                 <select name="product_id" required>
@@ -49,7 +50,7 @@
                 <button type="submit" class="order-button">Sil</button>
             </form>
         </div>
-        <div class="update-product">
+        <div class="form-section update-product">
             <h2 class="product-title">Ürün Güncelle</h2>
             <form action="/update_product" method="POST">
                 <select name="product_id" required>
