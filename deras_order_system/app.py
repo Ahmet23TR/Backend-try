@@ -52,9 +52,10 @@ def add_product():
     db.session.commit()
     return redirect(url_for('admin'))
 
-@app.route('/delete_product/<int:id>', methods=['POST'])
-def delete_product(id):
-    product = Product.query.get(id)
+@app.route('/delete_product', methods=['POST'])
+def delete_product():
+    product_id = request.form.get('product_id')
+    product = Product.query.get(product_id)
     if product:
         db.session.delete(product)
         db.session.commit()

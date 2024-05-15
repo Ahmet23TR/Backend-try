@@ -25,9 +25,6 @@
                         <div class="quantity-container">
                             <span class="quantity">{{ product.quantity }}</span>
                         </div>
-                        <form action="/delete_product/{{ product.id }}" method="POST">
-                            <button type="submit" class="delete-button">Sil</button>
-                        </form>
                     </li>
                     {% endfor %}
                 </ul>
@@ -38,6 +35,18 @@
             <form action="/add_product" method="POST">
                 <input type="text" name="product_name" placeholder="Ürün Adı" required>
                 <button type="submit" class="order-button">Ürün Ekle</button>
+            </form>
+        </div>
+        <div class="delete-product">
+            <h2 class="product-title">Ürün Sil</h2>
+            <form action="/delete_product" method="POST">
+                <select name="product_id" required>
+                    <option value="" disabled selected>Ürün Seç</option>
+                    {% for product in products %}
+                    <option value="{{ product.id }}">{{ product.name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="order-button">Sil</button>
             </form>
         </div>
     </main>
