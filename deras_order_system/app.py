@@ -15,7 +15,7 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
-    product = db.relationship('Product')
+    product = db.relationship('Product', backref='orders')
 
 with app.app_context():
     db.create_all()
@@ -58,6 +58,16 @@ def delete_product():
     product = Product.query.get(product_id)
     if product:
         db.session.delete(product)
+        db.session.commit()
+    return redirect(url_for('admin'))
+
+@app.route('/update_product', methods=['POST'])
+def update_product():
+    product_id = request.form.get('product_id')
+    new_name = request.form.get('product_name')
+    product = Product.query.get(product_id)
+    if product:
+        product.name = new_name
         db.session.commit()
     return redirect(url_for('admin'))
 

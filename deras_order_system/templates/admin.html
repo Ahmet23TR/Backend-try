@@ -49,6 +49,19 @@
                 <button type="submit" class="order-button">Sil</button>
             </form>
         </div>
+        <div class="update-product">
+            <h2 class="product-title">Ürün Güncelle</h2>
+            <form action="/update_product" method="POST">
+                <select name="product_id" required>
+                    <option value="" disabled selected>Ürün Seç</option>
+                    {% for product in products %}
+                    <option value="{{ product.id }}">{{ product.name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="text" name="product_name" placeholder="Yeni Ürün Adı" required>
+                <button type="submit" class="order-button">Güncelle</button>
+            </form>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
