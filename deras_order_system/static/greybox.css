@@ -249,12 +249,11 @@ main {
 }
 .order-details.sticky {
   position: fixed;
-  top: 0; /* Ekranın üst kısmına hizalanır */
-  left: 0; /* Ekranın sol kısmına hizalanır */
+  top: 0; 
+  left: 0; 
 }
 .order-details {
   position: fixed;
-  margin-top: 10000;
   right: 0;
   margin-right: 50px;
   width: 45%;
@@ -275,11 +274,13 @@ main {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Renk ve dönüşüm animasyonları */
+  transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
 .theme-button:hover {
-  background-color: #b83b5e; /* Hover durumunda koyu magenta */
+  background-color: white;
+  color: black;
+  border: 2px solid #b83b5e;
 }
 
 .theme-button:active {
@@ -289,6 +290,27 @@ main {
 .theme-button i {
   margin-right: 5px;
 }
+
+/* Mevcut CSS dosyasına ekleyin veya güncelleyin */
+.logout-button {
+  background-color: #4CAF50; /* Yeşil arka plan */
+  position: absolute;
+  top: 55px;
+  right: 10px;
+  color: white; /* Beyaz yazı rengi */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.logout-button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
 
 .last-item {
   margin: 20px;
@@ -418,3 +440,4 @@ body.dark .product-item.highlighted {
 .product-list-admin{
   width: 45%;
 }
+

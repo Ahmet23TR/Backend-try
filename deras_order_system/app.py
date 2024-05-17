@@ -15,6 +15,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(50), nullable=False)
+    role = db.Column(db.String(10), nullable=False, default='user')  # 'admin' veya 'user'
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -35,6 +36,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 @app.route('/')
+@login_required
 def home():
     products = Product.query.all()
     return render_template('index.html', products=products)
@@ -56,12 +58,16 @@ def add_order():
 @app.route('/admin')
 @login_required
 def admin():
+    if current_user.role != 'admin':
+        return redirect(url_for('home'))
     products = Product.query.all()
     return render_template('admin.html', products=products)
 
 @app.route('/add_product', methods=['POST'])
 @login_required
 def add_product():
+    if current_user.role != 'admin':
+        return redirect(url_for('home'))
     product_name = request.form.get('product_name')
     new_product = Product(name=product_name, quantity=0)
     db.session.add(new_product)
@@ -71,6 +77,8 @@ def add_product():
 @app.route('/delete_product', methods=['POST'])
 @login_required
 def delete_product():
+    if current_user.role != 'admin':
+        return redirect(url_for('home'))
     product_id = request.form.get('product_id')
     product = Product.query.get(product_id)
     if product:
@@ -81,6 +89,8 @@ def delete_product():
 @app.route('/update_product', methods=['POST'])
 @login_required
 def update_product():
+    if current_user.role != 'admin':
+        return redirect(url_for('home'))
     product_id = request.form.get('product_id')
     new_name = request.form.get('product_name')
     product = Product.query.get(product_id)
@@ -97,7 +107,7 @@ def register():
         if User.query.filter_by(username=username).first():
             flash('Username already exists.')
             return redirect(url_for('register'))
-        new_user = User(username=username, password=password)
+        new_user = User(username=username, password=password, role='user')
         db.session.add(new_user)
         db.session.commit()
         login_user(new_user)
@@ -112,7 +122,10 @@ def login():
         user = User.query.filter_by(username=username, password=password).first()
         if user:
             login_user(user)
-            return redirect(url_for('home'))
+            if user.role == 'admin':
+                return redirect(url_for('admin'))
+            else:
+                return redirect(url_for('home'))
         flash('Invalid username or password.')
     return render_template('login.html')
 
@@ -120,7 +133,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

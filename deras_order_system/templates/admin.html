@@ -12,11 +12,12 @@
         <nav>
             <img src="{{ url_for('static', filename='Deras.png') }}" alt="Logo" class="logo">
             <h1>Admin Paneli</h1>
-            <button onclick="themeChange()" class="theme-button"><i class="fas fa-moon"></i> Tema Değiştir</button>
         </nav>
+        <button onclick="themeChange()" class="theme-button"><i class="fas fa-moon"></i> Tema Değiştir</button>
+        <a href="{{ url_for('logout') }}" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </header>
     <main>
-        <section class="product-list-admin">
+        <section class="product-list">
             <h2 class="product-title">Ürünler</h2>
             <div class="product-container">
                 <ul>
@@ -67,6 +68,11 @@
     <footer>
         <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
     </footer>
+    <script>
+        function themeChange() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
     <script src="{{ url_for('static', filename='greybox.js') }}"></script>
 </body>
 </html>
